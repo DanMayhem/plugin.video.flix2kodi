@@ -34,6 +34,8 @@ def handle_request():
 #    generic_utility.log('mode: '+mode)
     if mode == 'main':
         general.main(video_type)
+    elif mode == 'my_list':
+        list.my_list(video_type, run_as_widget)
     elif mode == 'list_videos':
         list.videos(url, video_type, page, run_as_widget)
     elif mode == 'list_seasons':

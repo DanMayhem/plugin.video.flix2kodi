@@ -16,6 +16,7 @@ plugin_handle = int(sys.argv[1])
 
 
 def index():
+    add.directory(generic_utility.get_string(30104), '', 'my_list', '', 'both', login_context=True)
     add.directory(generic_utility.get_string(30100), '', 'main', '', 'movie', login_context=True)
     add.directory(generic_utility.get_string(30101), '', 'main', '', 'tv', login_context=True)
     add.directory(generic_utility.get_string(30102), '', 'wi_home', '', 'both', login_context=True)

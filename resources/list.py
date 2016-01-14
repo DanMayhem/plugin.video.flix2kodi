@@ -9,6 +9,7 @@ import add
 import get
 from resources import multiprocessor
 from resources.utility import generic_utility
+from resources.utility.generic_utility import extract_mylist_id
 from resources.video_parser import video
 
 plugin_handle = int(sys.argv[1])
@@ -137,3 +138,9 @@ def genres(video_type):
             add.directory(title, 'genre?' + genre_id, 'list_videos', '', video_type)
     xbmcplugin.endOfDirectory(plugin_handle)
 
+def my_list(video_type, run_as_widget):
+    content = connect.load_netflix_site("https://www.netflix.com/")
+    falkor_cache = generic_utility.parse_falkorcache(content)
+    mylist_id = extract_mylist_id(falkor_cache)[1]
+
+    videos('list?'+mylist_id, video_type, '', run_as_widget)
